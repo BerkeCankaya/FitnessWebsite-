@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuba Sports</title>
+    <link rel="stylesheet" href="./Css/style.css">
+    <link rel="stylesheet" href="./Css/home.css">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+    <div class="hero">
+      <header class="header">
+        <div class="top-bar-container">
+          <div class="top-bar container"> 
+            <div class="left-bar">
+                <i class="fa-regular fa-clock"></i>
+                <span class="bar-info">Hafta İçi : 09:00-22:00</span>
+                <span class="bar-info">Hafta Sonu : 09:00-22:00</span>
+            </div>
+            <div class="right-bar">
+                <i class="fa-solid fa-location-arrow"></i>
+                <span class="bar-info">Karşıyaka / İzmir</span> 
+            </div>
+          </div>  
+        </div>
+        <div class="navbar container">
+            <a href="#"><img src="./Img/kuba-logo.png" alt="Kuba Sports Logo" class="logo"></a>
+            <button class="menu-toggle" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a class="active" href="#">Anasayfa</a></li>
+                <li><a href="#">Hakkımızda</a></li>
+                <li><a href="#">Galeri</a></li>
+                <li><a href="#">Programlarımız</a></li>
+                <li><a href="#">İletişim</a></li>
+            </ul>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <div>
+            <div class="mobile-menu-header container">
+                <a href="#" aria-label="Anasayfa">
+                    <img src="./Img/kuba-logo.png" alt="Kuba Sports Logo" class="mobile-menu-logo">
+                </a>
+                <button class="mobile-menu-close" type="button" aria-label="Menüyü kapat">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <ul class="mobile-nav-links container">
+                <li><a class="active" href="#">Anasayfa</a></li>
+                <li><a href="#">Hakkımızda</a></li>
+                <li><a href="#">Galeri</a></li>
+                <li><a href="#">Programlarımız</a></li>
+                <li><a href="#">İletişim</a></li>
+            </ul>
+            </div>
+            <div class="mobile-menu-top-bar top-bar-container">
+                <div class="top-bar container"> 
+                    <div class="left-bar">
+                        <i class="fa-regular fa-clock"></i>
+                        <span class="bar-info">Hafta İçi : 09:00-22:00</span>
+                        <span class="bar-info">Hafta Sonu : 09:00-22:00</span>
+                    </div>
+                    <div class="right-bar">
+                        <i class="fa-solid fa-location-arrow"></i>
+                        <span class="bar-info">Karşıyaka / İzmir</span> 
+                    </div>
+                </div>
+            </div>
+        </div>
+      </header>
+      <div class="hero-text">
+        <div class="container hero-text-container">
+            <button class="title"><span class="dot"></span>PERSONAL TRAINING & FITNESS</button>
+            <h1>BUGÜN <span>BAŞLA</span> <br> YARIN <span>DEĞİŞ</span></h1>
+            <p>Uzman eğitmenler eşliğinde, hedeflerine özel hazırlanan programlarla daha <span>GÜÇLÜ</span>, daha <span>FİT</span> ve daha <span>SAĞLIKLI</span> bir yaşama adım at.</p>
+            <div class="hero-btns">
+                <a href="#"><button class="first-btn">BİZE ULAŞ</button></a>
+                <a href="#"><button class="second-btn">PROGRAMLARI İNCELE</button></a>
+            </div>
+            
+        </div>
+      </div>
+    </div>
+    <section class="marquee-container">
+        <div class="marquee-wrapper container">
+          <div class="marquee-track">
+            <ul class="marquee">
+                <li>FITNESS</li>
+                <li>PILATES</li>
+                <li><span>450m² ALAN</span></li>
+                <li>CARDIO</li>
+                <li>REFORMER</li>
+                <li><span>55+ PROFESYONEL ALAN</span></li>
+                <li>LIFESTYLE</li>
+                <li>NUTRITION</li>
+                <li><span>10.000+ MUTLU ÜYE</span></li>
+                <li>GÜCÜNÜ KEŞFET</li>
+                <li>BUGÜN DEĞİŞ</li>
+            </ul>
+            <ul class="marquee" aria-hidden="true">
+                <li>FITNESS</li>
+                <li>PILATES</li>
+                <li><span>450m² ALAN</span></li>
+                <li>CARDIO</li>
+                <li>REFORMER</li>
+                <li><span>55+ PROFESYONEL ALAN</span></li>
+                <li>LIFESTYLE</li>
+                <li>NUTRITION</li>
+                <li><span>10.000+ MUTLU ÜYE</span></li>
+                <li>GÜCÜNÜ KEŞFET</li>
+                <li>BUGÜN DEĞİŞ</li>
+            </ul>
+          </div>
+        </div>
+    </section>
+    <section class="services container">
+        <div class="common-title services-title">
+            <h2><span>01 /</span>Hizmetlerimiz</h2>
+            <span class="section-title">SERVICES</span>
+        </div>
+        <div class="services-cards">
+            <div class="card">
+                <div class="top-card">
+                    <button>6 Haftalık</button>
+                    <h3><span><i class="fa-solid fa-dumbbell"></i></span> Vücut <br> Performansı</h3>
+                    <p>Kişiye özel hazırlanan antrenman, beslenme programlarımızla düzenli vücut kompozisyonu (yağ, su, kas) ölçümleri ile değişiminizi takip ederek sizlere bilimsel sonuç sunuyoruz.</p>
+                </div>
+                <div class="bottom-card">
+                    <a href="#">Detaylı Bilgi <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="top-card">
+                    <button>Yüksek Tempo</button>
+                    <h3><span><i class="fa-solid fa-person-running"></i></span> Kardiyo <br> Tempo</h3>
+                    <p>Kardiyo programlarımız, yağ yakımını desteklerken kondisyonunuzu ve nefes kapasitenizi geliştirir. Düzenli antrenmanlarla daha fit ve aktif bir yaşamın keyfini çıkarın.</p>
+                </div>
+                <div class="bottom-card">
+                    <a href="#">Detaylı Bilgi <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="top-card">
+                    <button>Denge & Kontrol</button>
+                    <h3><span><img src="./Img/pilates-reformer-svgrepo-com.svg" alt=""></span> Reformer <br> Pilates</h3>
+                    <p>Reformer Pilates ile duruşunuzu iyileştirin, esnekliğinizi artırın ve tüm vücudunuzu güvenli bir şekilde güçlendirin. Her seviyeye uygun programlarla daha dengeli bir yaşamın keyfini çıkarın.</p>
+                </div>
+                <div class="bottom-card">
+                    <a href="#">Detaylı Bilgi <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="top-card">
+                    <button>Bilimsel Plan</button>
+                    <h3><span><i data-lucide="broccoli"></i></span> Beslenme <br> Diyetisyen</h3>
+                    <p>Uzman diyetisyen desteğiyle yaşam tarzınıza uygun beslenme planları oluşturun. Sağlıklı alışkanlıklar kazanarak hedeflerinize daha hızlı ve sürdürülebilir şekilde ulaşın.</p>
+                </div>
+                <div class="bottom-card">
+                    <a href="#">Detaylı Bilgi <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="why-us container">
+        <div class="common-title">
+            <h2><span>02 /</span>Neden Kuba Sports?</h2>
+            <span class="section-title">WHY US</span>
+        </div>
+        <div class="twu-container">
+            <div class="twu-cards">
+                <div class="twu-card card1">
+                    <h3>ÖNCELİKLİ GELİŞİM</h3>
+                    <p>Değerlendirmelerde başarılı olan üyelerimize, her ay HIIT performansı odaklı ücretsiz özel eğitim ayrıcalığı sunuyoruz.</p>
+                </div>
+                <div class="twu-card card2">
+                    <h3>HİJYEN VE TEMİZLİK</h3>
+                    <p>Her antrenmanınızı hijyenik, düzenli ve ferah bir ortamda güvenle gerçekleştirmeniz için salonumuzu sürekli özenle koruyoruz.</p>
+                </div>
+                <div class="twu-card card3">
+                    <h3>GENİŞ VE MODERN ALAN</h3>
+                    <p>3 katlı modern tesisimiz, fonksiyonel çalışma alanları ve son teknoloji ekipmanlarıyla her seviyeye uygun bir antrenman ortamı sunar.</p>
+                </div>
+                <div class="twu-card card4">
+                    <h3>KESİNTİSİZ MENTORLUK</h3>
+                    <p>Düzenli vücut analizleri ve profesyonel gelişim takibiyle, hedefinize giden yolda sizi asla yalnız bırakmıyoruz.</p>
+                </div>
+            </div>
+            <div class="twu-image">
+                <img src="./Img/Firefly (5).png" alt="Train With Us Image">
+            </div>
+        </div>
+    </section>
+
+    <section class="training container">
+        <div class="common-title">
+            <h2><span>03 /</span>Antrenman Sürecimiz</h2>
+            <span class="section-title">PROCESS</span>
+        </div>
+        <div class="training-image">
+            <video autoplay muted loop playsinline class="bg-video">
+                <source src="./Img/kuba-sports-video.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+            <div class="video-title">
+                <h3>Hedefinize Giden Yol Burada Başlıyor</h3>
+                <a href=""><button>Programlarımız <i class="fa-solid fa-arrow-right"></i></button></a>
+            </div>
+        </div>
+        <div class="training-cards">
+            <div class="training-card training-card1">
+                <h3><i class="fa-solid fa-handshake video-icon"></i> Ücretsiz Tanışma</h3>
+                <p>Ücretsiz ilk görüşme ve deneme antrenmanıyla sizi yakından tanıyoruz.</p>
+            </div>
+              <div class="training-card training-card2">
+                <h3><i class="video-icon" data-lucide="chart-column-big"></i>  Vücut Analizi</h3>
+                <p>Vücut ölçümlerinizi analiz ederek hedeflerinize en uygun başlangıç planını oluşturuyoruz.</p>
+            </div>
+              <div class="training-card training-card3">
+                <h3><i class="video-icon" data-lucide="dumbbell"></i> Kişiye Özel Program</h3>
+                <p>Size özel hazırlanan programla hedeflerinize planlı ve güvenli şekilde ilerliyorsunuz.</p>
+            </div>
+              <div class="training-card training-card4">
+                <h3><i class="video-icon" data-lucide="chart-no-axes-combined"></i> Gelişim Takibi</h3>
+                <p>Düzenli takip ve performans değerlendirmeleriyle gelişiminizi sürekli destekliyoruz.</p>
+            </div>
+        </div>
+    </section>
+    <section class="trainers container">
+        <div class="common-title">
+            <h2><span>04 /</span>Eğitmenlerimiz</h2>
+            <span class="section-title">TRAINERS</span>
+        </div>
+        <div class="trainers-cards">
+            <div class="trainer-card">
+                <div class="top-card">
+                    <img src="./Img/pt1.png" alt="Trainer 1">
+                </div>
+                <div class="bottom-card">
+                    <h3>Ahmet Aslan</h3>
+                    <p>Kurucu & Kıdemli Antrenör</p>
+                </div>
+            </div>
+            <div class="trainer-card">
+                <div class="top-card">
+                    <img src="./Img/pt2.png" alt="Trainer 1">
+                </div>
+                <div class="bottom-card">
+                    <h3>Merve Taşkın</h3>
+                    <p>Pilates & Grup Dersleri Eğitmeni</p>
+                </div>
+            </div>
+            <div class="trainer-card">
+                <div class="top-card">
+                    <img src="./Img/pt3.png" alt="Trainer 1">
+                </div>
+                <div class="bottom-card">
+                    <h3>Mehmet Yılmaz</h3>
+                    <p>Tam Zamanlı Antrenör</p>
+                </div>
+            </div>
+            <div class="trainer-card">
+                <div class="top-card">
+                    <img src="./Img/pt4.png" alt="Trainer 1">
+                </div>
+                <div class="bottom-card">
+                    <h3>Hasan Övet</h3>
+                    <p>Birebir Özel Eğitmen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="galery container">
+        <div class="common-title">
+            <h2><span>05 /</span>Salonumuzu Keşfedin</h2>
+            <span class="section-title">Galery</span>
+        </div>
+        <div class="galery-container">
+            <div class="galery-image">
+                <img src="./Img/kubaSports.png" alt="Train With Us Image">
+            </div>
+            <div class="galery-cards">
+                <a href=""><div class="galery-card galery-card1">
+                    <h3>Spor Salonu</h3>
+                </div></a>
+                <a href=""><div class="galery-card galery-card2">
+                    <h3>Reformer</h3>
+                </div></a>
+                <a href=""><div class="galery-card galery-card3">
+                    <h3>Kardiyo</h3>
+                </div></a>
+                <a href=""><div class="galery-card galery-card4">
+                    <h3>Vücut Geliştirme</h3>
+                </div></a>
+            </div>
+        </div>
+        <div class="galery-btn">
+            <a class="allGalery-btn" href="#"><button>Galeriye Git <i class="fa-solid fa-arrow-right"></i></button></a>
+        </div>
+    </section>
+  <section class="testimonials container">
+    <div class="common-title testimonials-common-title">
+        <h2><span>06 /</span>Müşteri Yorumları</h2>
+        <div class="title-right">
+            <span class="section-title">Reviews</span>
+            <div class="nav-buttons">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>    
+    </div>
+
+    <div class="swiper testimonials-swiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="testimonial-card">
+                    <p>Salona başladığımdan beri hem enerjim hem formum çok daha iyi. Eğitmenler gerçekten ilgili.</p>
+                    <div class="testimonial-bottom">
+                        <div class="testimonial-profile">
+                            <div class="testimonial-image">
+                                <img src="./Img/Firefly (3).png" alt="Testimonial 1">
+                            </div>
+                            <div class="testimonial-person">
+                                <h3 class="author-name">Emre K.</h3>
+                                <span class="author-info">6 aylık üye</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>       
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="testimonial-card">
+                    <p>Salona başladığımdan beri hem enerjim hem formum çok daha iyi. Eğitmenler gerçekten ilgili.</p>
+                    <div class="testimonial-bottom">
+                        <div class="testimonial-profile">
+                            <div class="testimonial-image">
+                                <img src="./Img/Firefly (3).png" alt="Testimonial 1">
+                            </div>
+                            <div class="testimonial-person">
+                                <h3 class="author-name">Emre K.</h3>
+                                <span class="author-info">6 aylık üye</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>       
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="testimonial-card">
+                    <p>Salona başladığımdan beri hem enerjim hem formum çok daha iyi. Eğitmenler gerçekten ilgili.</p>
+                    <div class="testimonial-bottom">
+                        <div class="testimonial-profile">
+                            <div class="testimonial-image">
+                                <img src="./Img/Firefly (3).png" alt="Testimonial 1">
+                            </div>
+                            <div class="testimonial-person">
+                                <h3 class="author-name">Emre K.</h3>
+                                <span class="author-info">6 aylık üye</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>       
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="testimonial-card">
+                    <p>Salona başladığımdan beri hem enerjim hem formum çok daha iyi. Eğitmenler gerçekten ilgili.Salona başladığımdan beri hem enerjim hem formum çok daha iyi. Eğitmenler gerçekten ilgili.Berke Çankaya asdasasdasdsa</p>
+                    <div class="testimonial-bottom">
+                        <div class="testimonial-profile">
+                            <div class="testimonial-image">
+                                <img src="./Img/Firefly (3).png" alt="Testimonial 1">
+                            </div>
+                            <div class="testimonial-person">
+                                <h3 class="author-name">Emre K.</h3>
+                                <span class="author-info">6 aylık üye</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>       
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-quote-left"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+        <div class="swiper-pagination testimonials-pagination"></div>
+    </section>
+    <section class="contact-cta container">
+        <div class="contact-text">
+            <h3>FORMUNU HAYAL ETTİĞİN <span>BEDENE DÖNÜŞTÜR</span></h3>
+            <p>Kişiye özel programlar ve deneyimli antrenörlerle hedefine daha hızlı ulaş.</p>
+            <a class="allGalery-btn" href="#"><button>İLETİŞİME GEÇ <i class="fa-solid fa-arrow-right"></i></button></a>
+        </div>
+        <div>
+            <h3 class="section-title">CONTACT</h3>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="footer-container container ">
+            <div class="top-footer">
+                <div class="footer-card footer-logo">
+                    <div class="footer-logo-top">
+                        <img src="./Img/kuba-logo.png" alt="Kuba Sports Logo">
+                        <p>İzmir de 2010 yılından bu yana spor tecrübemizle her anlamda işimizin en iyisini yapıyoruz.</p>
+                    </div>
+                    <div class="footer-socials">
+                        <a href=""><button><i class="fa-brands fa-facebook-f"></i></button></a>
+                        <a href=""><button><i class="fa-brands fa-instagram"></i></button></a>
+                    </div>
+                    <span>© 2024 Kuba Sports. Tüm hakları saklıdır.</span>
+                </div>
+                <div class="footer-card footer-links">
+                    <h3 class="footer-card-title">Hızlı Linkler</h3>
+                    <ul class="footer-links-container">
+                        <li><a href="index.html"><i class="fa-solid fa-arrow-right"></i>Anasayfa</a></li>
+                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>Hakkımızda</a></li>
+                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>Galeri</a></li>
+                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>Programlarımız</a></li>
+                        <li><a href="#"><i class="fa-solid fa-arrow-right"></i>İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-card footer-links">
+                    <h3 class="footer-card-title">İletişim</h3>
+                    <ul class="footer-contact-container">
+                        <li><a href="#"><i class="fa-solid fa-phone"></i>+90 555 555 55 55</a></li>
+                        <li><a href="#"><i class="fa-solid fa-envelope"></i>info@kubasports.com</a></li>
+                        <li><a href="#"><i class="fa-solid fa-location-dot"></i>Zübyede Hanım Cad. No:97 Bahçelievler <br>KARŞIYAKA / İZMİR</a></li>
+                    </ul>
+                </div> 
+            </div>
+            <div class="bottom-footer">
+                <span>Designed By <a href="https://berkecankaya.github.io/react-portfolio/"><i class="fa-solid fa-laptop-code"></i>Berke Çankaya</a></span>
+                <a class="legal" href="">Kvk Aydınlatma Metni</a>
+            </div>
+            
+        </div>
+    </section>
+    
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/SplitText.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
