@@ -644,3 +644,9 @@ body.menu-open{
     }
 
 }
+@media (max-height: 400px){
+    .hero{
+        height: auto;
+        min-height: 100vh;
+    }  
+}

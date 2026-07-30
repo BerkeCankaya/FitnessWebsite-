@@ -12,7 +12,6 @@
     flex-direction: column;
     justify-content: center;
     gap: 35px;
-    padding-bottom: 100px;
 }
 .hero-text .title{
      backdrop-filter: blur(10px);
@@ -662,7 +661,7 @@
     height: 400px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
-    background-color: var(--card-color);
+    background-color: transparent;
     box-shadow: 0 3px 9px var(--hover-color);
 }
 .trainer-card:hover{
@@ -681,7 +680,9 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    background-color: var(--card-color);
     z-index: 1;
+   
 }
 .trainers-cards .trainer-card .top-card::after{
     content: '';
@@ -708,7 +709,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: var(--card-color);
     gap: 10px;
+    
 }
 .trainer-card .bottom-card h3{
     font-size: 22px;
@@ -1574,4 +1577,9 @@
     }
 
     
+}
+@media (max-height: 400px){
+    .hero-text-container{
+        padding-bottom: 100px;
+    }  
 }
