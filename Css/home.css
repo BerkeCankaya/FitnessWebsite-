@@ -654,8 +654,8 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
+      border-top-left-radius: min(200px, 49%);
+    border-top-right-radius: min(200px, 49%);
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     height: 400px;
@@ -669,12 +669,11 @@
     box-shadow: 0 4px 12px var(--primary-color);
 }
 
-
 .trainers-cards .trainer-card .top-card{
     width: 100%;
     height: 70%;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
+    border-top-left-radius: min(200px, 49%);
+    border-top-right-radius: min(200px, 49%);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -682,8 +681,8 @@
     position: relative;
     background-color: var(--card-color);
     z-index: 1;
-   
 }
+
 .trainers-cards .trainer-card .top-card::after{
     content: '';
     position: absolute;
@@ -691,12 +690,12 @@
     left: 0;
     width: 100%;
     height: 50%;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
+    border-top-left-radius: min(200px, 49%);
+    border-top-right-radius: min(200px, 49%);
     background-color: var(--primary-color);
     filter: blur(75px);
     z-index: -1;
-} 
+}
 .trainers-cards .trainer-card .top-card img{
     width: auto;
     height: 100%;
