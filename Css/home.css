@@ -678,11 +678,26 @@
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: center;    background-color: var(--card-color);
+    justify-content: center;
+    position: relative;
+    background-color: var(--card-color);
     z-index: 1;
    
 }
-
+.top-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: var(--primary-color);
+    filter: blur(75px);
+    z-index: -1;
+    border-radius: inherit;      /* parent'la aynı radius'u miras al */
+    -webkit-transform: translateZ(0);  /* kendi katmanını zorla stabilize et */
+    will-change: transform;
+}
 .trainers-cards .trainer-card .top-card img{
     width: auto;
     height: 100%;
