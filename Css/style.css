@@ -39,7 +39,7 @@ a{
 }
 /*Header*/
 .hero{
-    background-image: url('../Img//home-hero.jpeg');
+    background-image: url('../Img//home-hero.webp');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

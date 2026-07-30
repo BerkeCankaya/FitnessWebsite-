@@ -422,25 +422,25 @@
 }
 .card1{
     width: 100%;
-    background-image:url(../Img/Firefly_seed766110.png);
+    background-image:url(../Img/whyUs-card1.webp);
     background-size: cover;
     background-position:center;
     background-repeat: no-repeat;
 }
 .card2{
-    background-image:url(../Img/Firefly_seed544784\ \(1\).png);
+    background-image:url(../Img/whyUs-card2.webp);
     background-size: cover;
     background-position:center;
     background-repeat: no-repeat;
 }
 .card3{
-    background-image:url(../Img/Firefly_Ultra-realistic\ background\ image\ for\ a\ fitness\ website\ feature\ card\,\ matching\ the\ sty\ 763820.png);
+    background-image:url(../Img/whyUs-card3.webp);
     background-size: cover;
     background-position:center;
     background-repeat: no-repeat;
 }
 .card4{
-    background-image:url(../Img/Firefly\ \(3\).png);
+    background-image:url(../Img/whyUs-card4.webp);
     background-size: cover;
     background-position:center;
     background-repeat: no-repeat;
@@ -684,7 +684,7 @@
     z-index: 1;
    
 }
-.top-card::after {
+.trainers-cards .trainer-card .top-card::after {
     content: '';
     position: absolute;
     top: 0;
@@ -772,25 +772,25 @@
 }
 .galery-card1{
     width: 100%;
-    background-image:url(../Img/spor-salonu.jpg);
+    background-image:url(../Img/spor-salonu.webp);
     background-size: cover;
     background-position:center;
     background-repeat: no-repeat;
 }
 .galery-card2{
-    background-image:url(../Img/reformer.jpg);
+    background-image:url(../Img/reformer.webp);
     background-size: cover;
     background-position:center;
     background-repeat: no-repeat;
 }
 .galery-card3{
-    background-image:url(../Img/kardiyo.jpg);
+    background-image:url(../Img/kardiyo.webp);
     background-size: cover;
     background-position:center;
     background-repeat: no-repeat;
 }
 .galery-card4{
-    background-image:url(../Img/vücut-geliştirme.jpg);
+    background-image:url(../Img/vücut-geliştirme.webp);
     background-size: cover;
     background-position:center;
     background-repeat: no-repeat;
@@ -982,7 +982,7 @@
 }
 .testimonial-profile .testimonial-image img{
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
 }
 .testimonial-person{
@@ -1096,7 +1096,7 @@
 .contact-cta{
     width: 100%;
     min-height: 60vh;
-    background-image: url(../Img/contact-cta.png);
+    background-image: url(../Img/contact-cta.webp);
     background-size: cover;
     background-position: center;
     position: relative;
