@@ -669,63 +669,35 @@
     box-shadow: 0 4px 12px var(--primary-color);
 }
 
-.trainers-cards .trainer-card {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 320px;
-    border-radius: clamp(60px, 20vw, 160px) clamp(60px, 20vw, 160px) 12px 12px;
-    overflow: hidden;
-    background-color: var(--card-color);
-    box-shadow: none;
-    transition: all 0.3s ease-in-out;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-}
 
-.trainers-cards .trainer-card:hover {
-    transform: translateY(-3px) translateZ(0);
-    box-shadow: 0 4px 12px var(--primary-color);
-}
-
-.trainers-cards .trainer-card .top-card {
+.trainers-cards .trainer-card .top-card{
     width: 100%;
-    aspect-ratio: 4 / 5;
+    height: 70%;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
     overflow: hidden;
-    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: var(--card-color);
+    justify-content: center;    background-color: var(--card-color);
     z-index: 1;
-    /* border-radius buradan kaldırıldı — artık gereksiz, dış kart zaten clip ediyor */
+   
 }
 
-.trainers-cards .trainer-card .top-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: var(--primary-color);
-    filter: blur(75px);
-    z-index: -1;
-}
-
-.trainers-cards .trainer-card .top-card img {
-    width: 100%;
+.trainers-cards .trainer-card .top-card img{
+    width: auto;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
 }
-
-.trainers-cards .trainer-card .bottom-card {
+.trainers-cards .trainer-card .bottom-card{
     width: 100%;
-    padding: 20px 0;
+    height: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
     background-color: var(--card-color);
+    gap: 10px;
+    
 }
 .trainer-card .bottom-card h3{
     font-size: 22px;
