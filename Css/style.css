@@ -644,7 +644,7 @@ body.menu-open{
     }
 
 }
-@media (max-height: 400px){
+@media (max-height: 500px) and (orientation: landscape){
     .hero{
         height: auto;
         min-height: 100vh;
