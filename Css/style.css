@@ -273,6 +273,7 @@ body.menu-open{
     display: flex;
     justify-content: space-between;
     padding-bottom: 50px;
+    overflow: hidden !important;
     border-bottom: 1px solid transparent;
     border-image: linear-gradient(to right, transparent, var(--primary-color), transparent) 1;
 }
@@ -430,6 +431,56 @@ body.menu-open{
     animation: spin-pause 3s linear infinite;
     transition: all 0.3s ease-in-out;
 }
+/*Scroll TO TOP*/
+.scroll-to-top{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 16px;
+    box-shadow: 0px 3px 9px var(--shadow-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.scroll-to-top i{
+ animation: bounce 2s infinite; 
+}
+.scroll-to-top:hover i{
+    animation:none;
+}
+ @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-6px);
+    }
+    60% {
+      transform: translateY(-2px);
+    }
+  }
+  .scroll-to-top:hover {
+    background-color: var(--accent-color);
+    box-shadow: 0px 4px 12px var(--accent-color);
+    transform: translateY(-3px);
+  }
+    .scroll-to-top.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+    
+
 @keyframes spin-pause {
     0% {
         transform: rotate(0deg);
@@ -535,6 +586,13 @@ body.menu-open{
     }
     .navbar a img{
         height: 75px;
+    }
+    .scroll-to-top{
+        bottom: 25px;
+        right: 25px;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-size: 14px;
     }
 }
 @media (max-width: 767px){
@@ -643,11 +701,13 @@ body.menu-open{
     .top-bar i{
         font-size: 10px;
     }
-
+       .scroll-to-top{
+        display: none;
+    }
 }
-@media (max-height: 500px) and (orientation: landscape){
+@media (max-height: 600px) and (orientation: landscape){
     .hero{
-        height: auto;
-        min-height: 100vh;
+        min-height: 120vh;
+        height: 100%;
     }  
 }

@@ -1600,3 +1600,19 @@
         padding-bottom: 100px;
     }  
 }
+
+@media (max-height: 600px) and (orientation: landscape){
+    .hero-text-container p{
+        font-size: 14px;
+    }
+    .hero-text-container a button{
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+    .hero-text-container h1{
+        font-size: 70px;
+    }
+    .hero-text-container {
+        gap: 15px;
+    }
+}

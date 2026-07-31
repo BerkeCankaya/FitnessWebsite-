@@ -437,3 +437,43 @@ gsap.from(".bottom-footer .legal", {
     toggleActions: "play none none none",
   }
 });
+
+/*SCROLL TO TOP*/
+const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+if (scrollToTopBtn) {
+  const toggleScrollToTopButton = () => {
+    const shouldShow = window.scrollY >= window.innerHeight;
+    scrollToTopBtn.classList.toggle('active', shouldShow);
+  };
+
+  const smoothScrollToTop = () => {
+    const startPosition = window.pageYOffset;
+    const duration = 700;
+    const startTime = performance.now();
+
+    const easeOutCubic = (progress) => 1 - Math.pow(1 - progress, 3);
+
+    const step = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const nextPosition = startPosition * (1 - easeOutCubic(progress));
+
+      window.scrollTo(0, nextPosition);
+
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+
+    window.requestAnimationFrame(step);
+  };
+
+  scrollToTopBtn.addEventListener('click', () => {
+    smoothScrollToTop();
+  });
+
+  window.addEventListener('scroll', toggleScrollToTopButton, { passive: true });
+  toggleScrollToTopButton();
+}
+
