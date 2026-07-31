@@ -327,7 +327,7 @@ animateCardRows(".galery-cards", ".galery-card", "galery-row");
     clearProps: "transform,opacity",
     scrollTrigger: {
       trigger: ".galery-btn",
-      start: "top 95%",
+      start: "top 80%",
       toggleActions: "play none none none",
     }
   });
@@ -413,4 +413,27 @@ gsap.from([".contact-text h3",".contact-text p",".contact-text a"], {
 });
 animateCardRows(".top-footer", ".footer-card", "footer-row");
 
-
+gsap.from(".bottom-footer span", {
+  x: -100,
+  opacity: 0,
+  duration: 1,
+  ease: "power4.out",
+  clearProps: "transform,opacity",
+  scrollTrigger: {
+    trigger: ".bottom-footer",
+    start: "top 90%",
+    toggleActions: "play none none none",
+  }
+})
+gsap.from(".bottom-footer .legal", {
+  x: 100,
+  opacity: 0,
+  duration: 1,
+  ease: "power4.out",
+  clearProps: "transform,opacity",
+    scrollTrigger: {
+    trigger: ".bottom-footer",
+    start: "top 90%",
+    toggleActions: "play none none none",
+  }
+});
