@@ -76,339 +76,7 @@ if (menuToggle && mobileMenu) {
   });
 }
 
-ScrollTrigger.config({
-  ignoreMobileResize: true,
-});
-
-ScrollTrigger.addEventListener("refresh", () => {
-  document.documentElement.style.overflowX = "hidden";
-});
-
-ScrollTrigger.refresh();
-
-  const heroTitle = document.querySelector(".hero-text-container h1");
-  const heroChars = [];
-  let isLineStart = true;
-
-  const splitNodeToChars = (node, target, isAccent = false) => {
-    if (node.nodeType === Node.TEXT_NODE) {
-      const text = node.textContent || "";
-      for (const ch of text) {
-        if (ch === "\n" || ch === "\r" || ch === "\t") {
-          isLineStart = true;
-          continue;
-        }
-
-        if (ch === " " && isLineStart) {
-          continue;
-        }
-
-        const charEl = document.createElement("span");
-        charEl.className = "hero-char";
-        if (!isAccent) {
-          charEl.style.background = "none";
-          charEl.style.color = "inherit";
-          charEl.style.webkitTextFillColor = "currentcolor";
-          charEl.style.textShadow = "none";
-        }
-        charEl.textContent = ch === " " ? "\xa0" : ch;
-        target.appendChild(charEl);
-        heroChars.push(charEl);
-        isLineStart = false;
-      }
-      return;
-    }
-
-    if (node.nodeType !== Node.ELEMENT_NODE) {
-      return;
-    }
-
-    if (node.tagName === "BR") {
-      target.appendChild(document.createElement("br"));
-      isLineStart = true;
-      return;
-    }
-
-    const clone = node.cloneNode(false);
-    const childIsAccent = isAccent || node.tagName === "SPAN";
-    const children = Array.from(node.childNodes);
-    for (const child of children) {
-      splitNodeToChars(child, clone, childIsAccent);
-    }
-    target.appendChild(clone);
-  };
-
-  if (heroTitle) {
-    const fragment = document.createDocumentFragment();
-    const children = Array.from(heroTitle.childNodes);
-    for (const child of children) {
-      splitNodeToChars(child, fragment, false);
-    }
-    heroTitle.innerHTML = "";
-    heroTitle.appendChild(fragment);
-
-    gsap.set(".hero-char", { display: "inline-block" });
-  }
-
-   const tl = gsap.timeline({});
-
-  tl.from(".hero", {
-      x: "25%",
-      opacity: 0,
-      duration: 1.5,
-    })
-    .from(".hero-text-container .title", {
-      x: "-100",
-      opacity: 0,
-      duration: 0.75,
-    },"-=1")
-    .from(heroChars, {
-      y: 45,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.03,
-      ease: "power4.out",
-    }, "-=0.2")
-    .from(".hero-text-container p", {
-      x: "-20%",
-      opacity: 0,
-      duration: 0.75,
-    },"-=0.35")
-    .from(".hero-text-container .hero-btns a", {
-      x: "-20%",
-      opacity: 0,
-      duration: 0.75,
-      stagger: 0.2,
-    },"-=0.35")
-    .from(".header", {
-      y: "-50%",
-      opacity: 0,
-      duration: 0.7,
-    }, "-=0.5");
-
-  // Marquee section için scroll-triggered animasyon
-  gsap.from(".marquee-container", {
-    y: "100px",       
-    opacity: 0,
-    duration: 1,
-    ease: "power4.out",
-    scrollTrigger: {
-      trigger: ".marquee-container",
-      start: "top 95%",
-      toggleActions: "play reverse play reverse",
-    }
-  });
-  
-  const servicesTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".services",
-      start: "top 75%",
-      end: "bottom 15%",
-      toggleActions: "play reverse play reverse",
-    },
-  });
-  servicesTl
-    .from(".services-title h2", {
-      x: -100,
-      opacity: 0,
-      duration: 1.5,
-      ease: "power4.out",
-    })
-    .from(
-      ".services-title .section-title",
-      {
-        x: 100,
-        opacity: 0,
-        duration: 0.75,
-        ease: "power4.out",
-      },
-      "-=1")
-    .from(
-      ".services-cards .card",
-      {
-        y: 100,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.15,
-        ease: "power4.out",
-        clearProps: "transform,opacity",
-      },
-      "-=1"
-    );
-
-     const whyUsTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".why-us",
-      start: "top 75%",
-      end: "bottom 15%",
-      toggleActions: "play reverse play reverse",
-    },
-  });
-
   const isWhyUsMobile = window.matchMedia("(max-width: 1024px)").matches;
-
-  whyUsTl
-    .from(".why-us .common-title h2", {
-      x: -100,
-      opacity: 0,
-      duration: 1.5,
-      ease: "power4.out",
-    })
-    .from(
-      ".why-us .common-title .section-title",
-      {
-        x: 100,
-        opacity: 0,
-        duration: 0.75,
-        ease: "power4.out",
-      },
-      "-=1");
-
-  if (isWhyUsMobile) {
-    whyUsTl
-      .from(".why-us .twu-cards .twu-card", {
-        x: -100,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.25,
-        ease: "power4.out",
-        clearProps: "transform,opacity",
-      }, "-=0.5")
-      .from(".why-us .twu-image", {
-        x: 100,
-        opacity: 0,
-        duration: 0.7,
-      }, "-=0.15");
-  } else {
-    whyUsTl
-      .from(".why-us .twu-image", {
-        x: 100,
-        opacity: 0,
-        duration: 0.7,
-      }, ">")
-      .from(".why-us .twu-cards .twu-card", {
-        x: -100,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.25,
-        ease: "power4.out",
-        clearProps: "transform,opacity",
-      }, "-=0.75");
-  }
-
-       const trainingTl = gsap.timeline({
-        scrollTrigger: {
-        trigger: ".training",
-        start: "top 75%",
-        end: "bottom 50%",
-        toggleActions: "play reverse play reverse",
-        },
-      });
-      trainingTl
-      .from(".training .common-title h2", {
-        x: -100,
-        opacity: 0,
-        duration: 0.75,
-        ease: "power4.out",
-      })
-      .from(".training .common-title .section-title",{
-        x: 100,
-        opacity: 0,
-        duration: 0.75,
-        ease: "power4.out",
-      },"-=0.25")
-      .from(".training .training-image", {
-        y: 100,
-        opacity: 0,
-        duration: 0.7,
-      })
-      .from(".training .video-title h3,.training .video-title a", {
-        y: 100,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.25,
-      })
-      .from(".training .training-cards .training-card", {
-        y: 100,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.1,
-        ease: "power4.out",
-        clearProps: "transform,opacity",
-      },"-=0.75");
-
-      const trainersTl = gsap.timeline({
-        scrollTrigger: {
-        trigger: ".trainers",
-        start: "top 75%",
-        end: "bottom 15%",
-        toggleActions: "play reverse play reverse",
-        },
-      });
-      trainersTl
-      .from(".trainers .common-title h2", {
-        x: -100,
-        opacity: 0,
-        duration: 0.75,
-        ease: "power4.out",
-      })
-      .from(".trainers .common-title .section-title",{
-        x: 100,
-        opacity: 0,
-        duration: 0.75,
-        ease: "power4.out",
-      },"-=0.25")
-      .from(".trainers .trainers-cards .trainer-card", {
-        y: 100,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.15,
-        ease: "power4.out",
-        clearProps: "transform,opacity",
-      },"-=0.75");
-
-      const galery = gsap.timeline({
-      scrollTrigger: {
-      trigger: ".galery",
-      start: "top 75%",
-      end: "bottom 15%",
-      toggleActions: "play reverse play reverse",
-    },
-  });
-  galery
-    .from(".galery .common-title h2", {
-      x: -100,
-      opacity: 0,
-      duration: 1.5,
-      ease: "power4.out",
-    })
-    .from(
-      ".galery .common-title .section-title",
-      {
-        x: 100,
-        opacity: 0,
-        duration: 0.75,
-        ease: "power4.out",
-      },
-      "-=1")
-      .from(".galery .galery-image", {
-        x: -100,
-        opacity: 0,
-        duration: 0.7,
-      },"-=0.5")
-      .from(".galery .galery-cards .galery-card", {
-        x: 100,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.20,
-        ease: "power4.out",
-        clearProps: "transform,opacity",
-      },"-=0.75")
-      .from(".galery-btn .allGalery-btn", {
-        x: 100,
-        opacity: 0,
-        duration: 0.7,
-      },"-=0.10");
 
        const testimonialsSwiper = new Swiper('.testimonials-swiper', {
         slidesPerView: 3,
@@ -431,64 +99,6 @@ ScrollTrigger.refresh();
         },
       });
 
-       const testimonials = gsap.timeline({
-      scrollTrigger: {
-      trigger: ".testimonials",
-      start: "top 70%",
-      end: "bottom 15%",
-      toggleActions: "play reverse play reverse",
-    },
-  });
-  testimonials
-    .from(".testimonials .common-title h2", {
-      x: -100,
-      opacity: 0,
-      duration: 1.5,
-      ease: "power4.out",
-    })
-    .from(
-      ".testimonials .title-right .section-title",
-      {
-        x: 100,
-        opacity: 0,
-        duration: 0.75,
-        ease: "power4.out",
-      },
-      "-=1")
-    .from(
-      ".testimonials .title-right .nav-buttons",
-      {
-        x: 100,
-        opacity: 0,
-        duration: 0.75,
-        ease: "power4.out",
-      },
-      "<"
-    )
-    .from(
-      ".testimonials .testimonials-swiper .swiper-slide",
-      {
-        y: 100,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.2,
-        ease: "power4.out",
-        clearProps: "transform,opacity",
-      },
-      "-=0.5"
-    )
-    .from(
-      ".testimonials .testimonials-pagination .swiper-pagination-bullet",
-      {
-        y: 25,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.1,
-        ease: "power4.out",
-        clearProps: "transform,opacity",
-      },
-      "<"
-    );
  gsap.to(".contact-cta", {
   scale: 0.9,
   borderRadius: "12px",
@@ -511,48 +121,6 @@ const contactCtaContent = gsap.timeline({
   },
 });
 
-contactCtaContent
-.from(".contact-cta .section-title", {
-      y: 100,
-      opacity: 0,
-      duration: 0.75,
-      ease: "power4.out",
-  })
-  .from(".contact-cta .contact-text h3", {
-    y: 100,
-    opacity: 0,
-    duration: 0.7,
-    ease: "power4.out",
-  })
-  .from(
-    ".contact-cta .contact-text p",
-    {
-      y: 100,
-      opacity: 0,
-      duration: 0.7,
-      ease: "power4.out",
-    },
-    "-=0.35"
-  )
-  .from(
-    ".contact-cta .contact-text a",
-    {
-      y: 100,
-      opacity: 0,
-      duration: 0.7,
-      ease: "power4.out",
-    },
-    "-=0.35"
-  );
-  const footerTimeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".footer",
-      start: "top 80%",
-      end: "bottom 20%",
-      toggleActions: "play reverse play reverse",
-    },
-  });
-
   /*SERVİCE SECTİON GLOWS*/
   document.querySelectorAll('.card').forEach(card => {
   card.addEventListener('mousemove', (e) => {
@@ -564,7 +132,7 @@ contactCtaContent
     card.style.setProperty('--y', `${y}px`);
   });
 });
-
+/*SWİPER TESTİMONİALS GLOWS*/ 
  document.querySelectorAll('.swiper-slide').forEach(card => {
   card.addEventListener('mousemove', (e) => {
     const rect = card.getBoundingClientRect();
@@ -579,3 +147,293 @@ contactCtaContent
 /*LUCIDE IKONS*/
 lucide.createIcons();
 
+/*GSAP PAGE EFFECTS*/
+const heroTl = gsap.timeline();
+  heroTl
+  .from([".hero-text-container .title",".hero-text-container h1",".hero-text-container p",".hero-btns .second",".hero-btns .first"], {
+    opacity: 0,
+    x: -50,
+    duration: 1,
+    stagger: 0.1,
+    ease: "power4.out",
+  })
+  .from([".navbar a img",".nav-links li"], {
+    opacity: 0,
+    y: -50,
+    duration: 1,
+    stagger: 0.1,
+    ease: "power4.out",
+  }, "-=0.75")
+  .from([".left-bar",".right-bar"], {
+    opacity: 0,
+    y: -50,
+    duration: 1,
+    stagger: 0.1,
+    ease: "power4.out",
+  }, "-=1");
+
+  /*SCROLLTRİGGER*/
+  document.querySelectorAll(".marquee").forEach((marquee)=> {
+    gsap.from(marquee, {
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: marquee,
+        start: "top 100%",
+        toggleActions: "play none none none",
+      },
+    });
+  });
+
+  document.querySelectorAll(".common-title").forEach((commonTitle) => {
+  const commonh2 = commonTitle.querySelector("h2");
+  const sectionTitle = commonTitle.querySelector(".section-title");
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: commonTitle,
+      start: "top 75%",
+      toggleActions: "play none none none",
+      },
+  });
+
+  tl.from(commonh2, {
+    x: -100,
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out",
+  })
+  .from(sectionTitle, {
+    x: 100,
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out",
+  }, "-=0.9")
+});
+
+function animateCardRows(containerSelector, cardSelector, triggerId) {
+  ScrollTrigger.getAll().forEach(trigger => {
+    if (trigger.vars.id === triggerId) {
+      trigger.kill();
+    }
+  });
+
+  document.querySelectorAll(containerSelector).forEach(container => {
+    const cards = [...container.querySelectorAll(cardSelector)];
+
+    const rows = [];
+    let currentRow = [];
+    let currentTop = null;
+
+    cards.forEach(card => {
+      const top = Math.round(card.offsetTop);
+
+      if (currentTop === null || top === currentTop) {
+        currentRow.push(card);
+        currentTop = top;
+      } else {
+        rows.push(currentRow);
+        currentRow = [card];
+        currentTop = top;
+      }
+    });
+
+    if (currentRow.length) rows.push(currentRow);
+
+    rows.forEach(row => {
+      gsap.from(row, {
+        y: 100,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power4.out",
+        clearProps: "transform,opacity",
+        scrollTrigger: {
+          id: triggerId,
+          trigger: row[0],
+          start: "top 85%",
+          toggleActions: "play none none none",
+        }
+      });
+    });
+  });
+}
+animateCardRows(".services-cards", ".card", "services-row");
+animateCardRows(".twu-cards", ".twu-card", "twu-row");
+
+gsap.from(".twu-image", {
+  y: 100,
+  opacity: 0,
+  duration: 0.8,
+  ease: "power4.out",
+  clearProps: "transform,opacity",
+  scrollTrigger: {
+    trigger: ".twu-image",
+    start: "top 85%",
+    toggleActions: "play none none none",
+  }
+});
+
+gsap.from(".training-image", {
+  y: 100,
+  opacity: 0,
+  duration: 1,
+  ease: "power4.out",
+  clearProps: "transform,opacity",
+  scrollTrigger: {
+    trigger: ".training-image",
+    start: "top 70%",
+    toggleActions: "play none none none",
+  }
+});
+gsap.from([".video-title h3",".video-title a "],{
+  y: 100,
+  opacity: 0,
+  duration: 1,
+  ease: "power4.out",
+  stagger: 0.1,
+  clearProps: "transform,opacity",
+  scrollTrigger: {
+    trigger: ".video-title",
+    start: "top 80%",
+    toggleActions: "play none none none",
+  }
+});
+
+animateCardRows(".training-cards", ".training-card", "training-row");
+animateCardRows(".trainers-cards", ".trainer-card", "trainer-row");
+
+gsap.from(".galery-image", {
+  x: -100,
+  opacity: 0,
+  duration: 1,
+  ease: "power4.out",
+  clearProps: "transform,opacity",
+  scrollTrigger: {
+    trigger: ".galery-image",
+    start: "top 80%",
+    toggleActions: "play none none none",
+  }
+}); 
+animateCardRows(".galery-cards", ".galery-card", "galery-row");
+
+  gsap.from(".galery-btn", {
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out",
+    clearProps: "transform,opacity",
+    scrollTrigger: {
+      trigger: ".galery-btn",
+      start: "top 95%",
+      toggleActions: "play none none none",
+    }
+  });
+
+    gsap.from(".common-title .nav-buttons", {
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out",
+    clearProps: "transform,opacity",
+    scrollTrigger: {
+      trigger: ".common-title",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    }
+  });
+
+  
+  document.querySelectorAll(".testimonials-common-title").forEach((testiCommonTitle) => {
+  const commonh2 = testiCommonTitle.querySelector("h2");
+  const sectionTitle = testiCommonTitle.querySelector(".section-title");
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: testiCommonTitle,
+      start: "top 10%",
+      toggleActions: "play none none none",
+      },
+  });
+
+  tl.from(commonh2, {
+    x: -100,
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out",
+  })
+  .from(sectionTitle, {
+    x: 100,
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out",
+  }, "-=0.9")
+});
+gsap.from(".nav-buttons .nav-btn", {
+  y: 100,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.1,
+  ease: "power4.out",
+  clearProps: "transform,opacity",
+  scrollTrigger: {
+    trigger: ".testimonials-common-title",
+    start: "top 90%",
+    toggleActions: "play none none none",
+  }
+});
+animateCardRows(".swiper-wrapper", ".swiper-slide", "swiper-row");
+
+gsap.from(".contact-cta", {
+  y: 100,
+  opacity: 0,
+  duration: 1,
+  ease: "power4.out",
+  clearProps: "transform,opacity",
+  scrollTrigger: {
+    trigger: ".contact-cta",
+    start: "top 90%",
+    toggleActions: "play none none none",
+  }
+});
+gsap.from([".contact-text h3",".contact-text p",".contact-text a"], {
+  y: 100,
+  opacity: 0,
+  duration: 1,
+  ease: "power4.out",
+  stagger: 0.1,
+  clearProps: "transform,opacity",
+  scrollTrigger: {
+    trigger: ".contact-text",
+    start: "top 80%",
+    toggleActions: "play none none none",
+  }
+});
+animateCardRows(".top-footer", ".footer-card", "footer-row");
+
+gsap.from(".bottom-footer span", {
+  x: -100,
+  opacity: 0,
+  duration: 1,
+  ease: "power4.out",
+  clearProps: "transform,opacity",
+  scrollTrigger: {
+    trigger: ".bottom-footer",
+    start: "top 90%",
+    toggleActions: "play none none none",
+  }
+})
+gsap.from(".bottom-footer .legal", {
+  x: 100,
+  opacity: 0,
+  duration: 1,
+  ease: "power4.out",
+  clearProps: "transform,opacity",
+    scrollTrigger: {
+    trigger: ".bottom-footer",
+    start: "top 90%",
+    toggleActions: "play none none none",
+  }
+});
