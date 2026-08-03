@@ -150,13 +150,21 @@ lucide.createIcons();
 /*GSAP PAGE EFFECTS*/
 const heroTl = gsap.timeline();
   heroTl
-  .from([".hero-text-container .title",".hero-text-container h1",".hero-text-container p",".hero-btns .second",".hero-btns .first"], {
+  .from([".hero-text-container .title",".hero-text-container h1",".hero-text-container p"], {
     opacity: 0,
     x: -50,
     duration: 1,
     stagger: 0.1,
     ease: "power4.out",
   })
+  .from([".hero-btns .second",".hero-btns .first"], {
+    opacity: 0,
+    x: -50,
+    duration: 1,
+    stagger: 0.1,
+    ease: "back.out(1.7)",
+  }, "-=0.75")
+
   .from([".navbar a img",".nav-links li"], {
     opacity: 0,
     y: -50,
@@ -178,7 +186,7 @@ const heroTl = gsap.timeline();
       y: 100,
       opacity: 0,
       duration: 1,
-      ease: "power4.out",
+      ease: "sine.out",
       scrollTrigger: {
         trigger: marquee,
         start: "top 100%",
@@ -244,16 +252,16 @@ function animateCardRows(containerSelector, cardSelector, triggerId) {
 
     rows.forEach(row => {
       gsap.from(row, {
-        y: 100,
+        y: 50,
         opacity: 0,
         duration: 0.5,
         stagger: 0.1,
-        ease: "power4.out",
+        ease: "power2.out",
         clearProps: "transform,opacity",
         scrollTrigger: {
           id: triggerId,
           trigger: row[0],
-          start: "top 85%",
+          start: "top 100%",
           toggleActions: "play none none none",
         }
       });
@@ -267,7 +275,7 @@ gsap.from(".twu-image", {
   y: 100,
   opacity: 0,
   duration: 0.8,
-  ease: "power4.out",
+  ease: "power3.out",
   clearProps: "transform,opacity",
   scrollTrigger: {
     trigger: ".twu-image",
@@ -280,7 +288,7 @@ gsap.from(".training-image", {
   y: 100,
   opacity: 0,
   duration: 1,
-  ease: "power4.out",
+  ease: "power3.out",
   clearProps: "transform,opacity",
   scrollTrigger: {
     trigger: ".training-image",
@@ -288,12 +296,24 @@ gsap.from(".training-image", {
     toggleActions: "play none none none",
   }
 });
-gsap.from([".video-title h3",".video-title a "],{
+gsap.from(".video-title h3", {
   y: 100,
   opacity: 0,
   duration: 1,
   ease: "power4.out",
-  stagger: 0.1,
+  clearProps: "transform,opacity",
+  scrollTrigger: {
+    trigger: ".video-title",
+    start: "top 80%",
+    toggleActions: "play none none none",
+  }
+});
+gsap.from(".video-title a", {
+  y: 100,
+  opacity: 0,
+  duration: 0.8,
+  ease: "back.out(1.4)",
+  delay: 0.4,  
   clearProps: "transform,opacity",
   scrollTrigger: {
     trigger: ".video-title",
@@ -309,7 +329,7 @@ gsap.from(".galery-image", {
   x: -100,
   opacity: 0,
   duration: 1,
-  ease: "power4.out",
+  ease: "power3.out",
   clearProps: "transform,opacity",
   scrollTrigger: {
     trigger: ".galery-image",
@@ -323,7 +343,7 @@ animateCardRows(".galery-cards", ".galery-card", "galery-row");
     y: 100,
     opacity: 0,
     duration: 1,
-    ease: "power4.out",
+    ease: "back.out(1.7)",
     clearProps: "transform,opacity",
     scrollTrigger: {
       trigger: ".galery-btn",
@@ -336,7 +356,7 @@ animateCardRows(".galery-cards", ".galery-card", "galery-row");
     y: 100,
     opacity: 0,
     duration: 1,
-    ease: "power4.out",
+    ease: "back.out(1.7)",
     clearProps: "transform,opacity",
     scrollTrigger: {
       trigger: ".common-title",
@@ -353,7 +373,7 @@ animateCardRows(".galery-cards", ".galery-card", "galery-row");
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: testiCommonTitle,
-      start: "top 10%",
+      start: "top 95%",
       toggleActions: "play none none none",
       },
   });
@@ -376,7 +396,7 @@ gsap.from(".nav-buttons .nav-btn", {
   opacity: 0,
   duration: 1,
   stagger: 0.1,
-  ease: "power4.out",
+  ease: "back.out(1.4)",
   clearProps: "transform,opacity",
   scrollTrigger: {
     trigger: ".testimonials-common-title",
@@ -390,7 +410,7 @@ gsap.from(".contact-cta", {
   y: 100,
   opacity: 0,
   duration: 1,
-  ease: "power4.out",
+  ease: "power3.out",
   clearProps: "transform,opacity",
   scrollTrigger: {
     trigger: ".contact-cta",
@@ -398,12 +418,26 @@ gsap.from(".contact-cta", {
     toggleActions: "play none none none",
   }
 });
-gsap.from([".contact-text h3",".contact-text p",".contact-text a"], {
+gsap.from([".contact-text h3",".contact-text p"], {
   y: 100,
   opacity: 0,
   duration: 1,
   ease: "power4.out",
   stagger: 0.1,
+  delay: 0.2,
+  clearProps: "transform,opacity",
+  scrollTrigger: {
+    trigger: ".contact-text",
+    start: "top 80%",
+    toggleActions: "play none none none",
+  }
+});
+gsap.from(".contact-text a", {
+  y: 100,
+  opacity: 0,
+  duration: 1,
+  ease: "back.out(1.4)",
+  delay: 0.4,
   clearProps: "transform,opacity",
   scrollTrigger: {
     trigger: ".contact-text",

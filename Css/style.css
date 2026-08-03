@@ -124,7 +124,7 @@ a{
     width:auto;
     height: 85px;
 }
-.navbar a img:hover{
+.navbar a:hover{
     transform: scale(1.05);
     transition: all 0.3s ease-in-out;
 }
@@ -303,6 +303,7 @@ body.menu-open{
     width: 100%;
     display: flex;
     gap: 15px;
+    padding-left: 10px;
 }
 .footer-socials a button{
     background-color: var(--primary-color);
